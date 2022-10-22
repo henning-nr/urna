@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <style>
       .confirma {
         background-color: green !important;
-        padding-top: 4px !important;
-        box-shadow: 2px 2px 2px #095709 !important;
+        box-shadow: 2px 0px 1px #095709 !important;
         border-right-style: solid !important;
         border-bottom-style: solid !important;
         border-color: #085e08 !important;
-        border: 3px;
+        border: 2px;
+        transform: scaleY(2.5);
+        transform-origin: 0 0;
+        height: 7px;
+        letter-spacing: 2px;
+        padding-bottom: 18px !important;
       }
       .branco {
         height: 20px !important;
@@ -31,11 +36,11 @@
       }
       .corrige,
       .branco {
-        margin-top: 50px !important;
+        margin-top: 20px !important;
         margin-left: 15px !important;
         margin-right: 15px !important;
-        padding-top: 0px !important;
-        padding-bottom: 50px !important;
+        padding-top: 7px !important;
+        padding-bottom: 22px !important;
       }
 
       .corrige,
@@ -57,22 +62,22 @@
         margin: 10px;
         padding-left: 20px;
         line-height: 75px;
-        font-size: 30px;
+        font-size: clamp(1.5rem, 3vw, 3vw);
         font-family: sans-serif;
         color: white;
         box-shadow: 2px 2px 2px black;
       }
 
-      .flex-container > div:hover {
+      .flex-container > div:active {
         box-shadow: 1px 1px 1px white;
         background-color: #111;
       }
 
-      .flex-container > span:hover {
+      .flex-container > span:active {
         box-shadow: 1px 1px 1px white !important;
       }
 
-      .flex-container > .confirma:hover {
+      .flex-container > .confirma:active {
         background-color: #0f470f !important;
         box-shadow: 1px 1px 1px white !important;
         background-color: #0f470f !important;
@@ -82,7 +87,7 @@
         border: 3px;
       }
 
-      .flex-container > .corrige:hover {
+      .flex-container > .corrige:active {
         background-color: #88580f !important;
         box-shadow: 1px 1px 1px white !important;
         border-right-style: solid !important;
@@ -91,7 +96,7 @@
         border: 3px;
       }
 
-      .flex-container > .branco:hover {
+      .flex-container > .branco:active {
         box-shadow: 1px 1px 1px white !important;
         background-color: #aeacac !important;
         border-right-style: solid !important;
@@ -101,8 +106,8 @@
       }
 
       .flex-container > span {
-        padding: 25px;
-        font-size: 30px;
+        padding: 23px;
+        padding-top: 2px;
       }
 
       a {
@@ -112,7 +117,23 @@
   </head>
   <body>
     <div class="urna">
-      <h1 style="text-align: center;">{ title }</h1>
+      <div style="display: flex;">
+      <div style="width: 20;">
+
+        <img width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
+        </div>
+        <div style="width: 80%;">
+
+          <h1 style="text-align: center; font-family: sans-serif;
+        font-size: 33px;">
+        <pre 
+        style="margin: 0px;
+        text-align: end;
+        margin-right: 33px;
+        font-family: sans-serif, arial;
+        ">{ title }</pre></h1>
+    </div>
+      </div>
       <div style="padding-top: 30px" class="flex-container">
         <div onclick="clickButton(this)">1</div>
         <div onclick="clickButton(this)">2</div>
@@ -132,9 +153,9 @@
         <div onclick="clickButton(this)">0</div>
       </div>
       <div style="padding-bottom: 30px" class="flex-container">
-        <span onclick="clickButton(this)" class="branco">Branco</span>
-        <span onclick="clickButton(this)" class="corrige">Corrige</span>
-        <span onclick="clickButton(this)" class="confirma">Confirma</span>
+        <span onclick="clickButton(this)" class="branco">BRANCO</span>
+        <span onclick="clickButton(this)" class="corrige">CORRIGE</span>
+        <span onclick="clickButton(this)" class="confirma">CONFIRMA</span>
       </div>
     </div>
   </body>
