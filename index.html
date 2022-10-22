@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .confirma {
+        background-color: green !important;
+        padding-top: 4px !important;
+        box-shadow: 2px 2px 2px #095709 !important;
+        border-right-style: solid !important;
+        border-bottom-style: solid !important;
+        border-color: #085e08 !important;
+        border: 3px;
+      }
+      .branco {
+        height: 20px !important;
+        background-color: white !important;
+        box-shadow: 2px 2px 0px #797264 !important;
+        border-right-style: solid !important;
+        border-bottom-style: solid !important;
+        border-color: #837e76 !important;
+        border: 3px;
+      }
+      .corrige {
+        height: 20px !important;
+        background-color: orange !important;
+        box-shadow: 2px 2px 1px #6a4b11 !important;
+        border-right-style: solid !important;
+        border-bottom-style: solid !important;
+        border-color: #85570c !important;
+        border: 3px;
+      }
+      .corrige,
+      .branco {
+        margin-top: 50px !important;
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        padding-top: 0px !important;
+        padding-bottom: 50px !important;
+      }
+
+      .corrige,
+      .branco,
+      .confirma {
+        font-family: sans-serif;
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: center;
+        background-color: #333;
+        padding: 10px;
+      }
+
+      .flex-container > div {
+        background-color: #222;
+        width: 100px;
+        margin: 10px;
+        padding-left: 20px;
+        line-height: 75px;
+        font-size: 30px;
+        font-family: sans-serif;
+        color: white;
+        box-shadow: 2px 2px 2px black;
+      }
+
+      .flex-container > div:hover {
+        box-shadow: 1px 1px 1px white;
+        background-color: #111;
+      }
+
+      .flex-container > span:hover {
+        box-shadow: 1px 1px 1px white !important;
+      }
+
+      .flex-container > .confirma:hover {
+        background-color: #0f470f !important;
+        box-shadow: 1px 1px 1px white !important;
+        background-color: #0f470f !important;
+        border-right-style: solid !important;
+        border-bottom-style: solid !important;
+        border-color: #0f470f !important;
+        border: 3px;
+      }
+
+      .flex-container > .corrige:hover {
+        background-color: #88580f !important;
+        box-shadow: 1px 1px 1px white !important;
+        border-right-style: solid !important;
+        border-bottom-style: solid !important;
+        border-color: #9c5400 !important;
+        border: 3px;
+      }
+
+      .flex-container > .branco:hover {
+        box-shadow: 1px 1px 1px white !important;
+        background-color: #aeacac !important;
+        border-right-style: solid !important;
+        border-bottom-style: solid !important;
+        border-color: #c0b4b4 !important;
+        border: 3px;
+      }
+
+      .flex-container > span {
+        padding: 25px;
+        font-size: 30px;
+      }
+
+      a {
+        margin-top: -10px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="urna">
+      <div style="padding-top: 30px" class="flex-container">
+        <div onclick="clickButton(this)">1</div>
+        <div onclick="clickButton(this)">2</div>
+        <div onclick="clickButton(this)">3</div>
+      </div>
+      <div class="flex-container">
+        <div onclick="clickButton(this)">4</div>
+        <div onclick="clickButton(this)">5</div>
+        <div onclick="clickButton(this)">6</div>
+      </div>
+      <div class="flex-container">
+        <div onclick="clickButton(this)">7</div>
+        <div onclick="clickButton(this)">8</div>
+        <div onclick="clickButton(this)">9</div>
+      </div>
+      <div class="flex-container">
+        <div onclick="clickButton(this)">0</div>
+      </div>
+      <div style="padding-bottom: 30px" class="flex-container">
+        <span onclick="clickButton(this)" class="branco">Branco</span>
+        <span onclick="clickButton(this)" class="corrige">Corrige</span>
+        <span onclick="clickButton(this)" class="confirma">Confirma</span>
+      </div>
+    </div>
+  </body>
+  <script>
+  function clickButton(btn){
+    console.log(btn.innerHTML)
+  }
+  </script>
+</html>
