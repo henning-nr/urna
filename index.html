@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <style>
+
+      dialog{
+        position: fixed;
+        width: 70%;
+        height: 30%;
+        margin-top: 38%;
+        font-size: 10vw;
+        z-index: 1000;
+        text-align: center;
+        padding-top: 33%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0%;
+      }
+
       .confirma {
         background-color: green !important;
         box-shadow: 2px 0px 1px #095709 !important;
@@ -56,7 +71,7 @@
         padding: 10px;
       }
 
-      .flex-container > div {
+      .flex-container > div, button {
         background-color: #222;
         width: 100px;
         margin: 10px;
@@ -113,16 +128,26 @@
       a {
         margin-top: -10px !important;
       }
+
+      #voto{
+        display: flex;
+        justify-content: center;
+        font-size: 10vw;
+      }
     </style>
   </head>
   <body>
+    <dialog id="dialog">Votou</dialog>
     <div class="urna">
-      <div style="display: flex;">
-      <div style="width: 20;">
+      <div id="voto">
+
+      </div>
+      <div style="display: flex; justify-content: center">
+      <div>
 
         <img width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
         </div>
-        <div style="width: 80%;">
+        <div>
 
           <h1 style="text-align: center; font-family: sans-serif;
         font-size: 33px;">
@@ -136,7 +161,7 @@
       </div>
       <div style="padding-top: 30px" class="flex-container">
         <div onclick="clickButton(this)">1</div>
-        <div onclick="clickButton(this)">2</div>
+        <div id="ideal" onclick="clickButton(this)">2</div>
         <div onclick="clickButton(this)">3</div>
       </div>
       <div class="flex-container">
@@ -153,15 +178,51 @@
         <div onclick="clickButton(this)">0</div>
       </div>
       <div style="padding-bottom: 30px" class="flex-container">
-        <span onclick="clickButton(this)" class="branco">BRANCO</span>
-        <span onclick="clickButton(this)" class="corrige">CORRIGE</span>
-        <span onclick="clickButton(this)" class="confirma">CONFIRMA</span>
+        <span onclick="branco()" class="branco">BRANCO</span>
+        <span onclick="limpar()" class="corrige">CORRIGE</span>
+        <span onclick="confirmar()" class="confirma">CONFIRMA</span>
       </div>
+    </div>
+    <div style="width: 98%;">
+      <button style="font-size: 20px; width: inherit;" onclick="urnaIdeal()">Ajusta urna para evitar problemas futuros</button>
     </div>
   </body>
   <script>
+    document.querySelector('dialog').style.display = 'none';
+    var voto = document.getElementById('voto')
   function clickButton(btn){
-    console.log(btn.innerHTML)
+    console.log(btn.innerHTML.trim())
+    var escolha = voto.innerHTML.trim()
+    if(escolha.length == 2){
+      return
+    }
+    voto.innerHTML = voto.innerHTML + btn.innerHTML
+  }
+
+  function limpar(){
+    voto.innerHTML = ''
+  }
+
+  function branco(){
+    voto.innerHTML = 'BRANCO'
+  }
+
+  function urnaIdeal(){
+    var problema  = document.getElementById('ideal')
+    if(problema.style.display === '' || problema.style.display === 'block'){
+      problema.style.display = 'none'
+    }else{
+      problema.style.display = 'block'
+    }
+  }
+
+  function confirmar(){
+    var dialog = document.querySelector('dialog')
+    dialog.innerHTML = 'Você votou ' + voto.innerHTML
+    dialog.style.display = 'flex';
+    setTimeout(() => {
+      dialog.style.display = 'none';
+    }, 3000);
   }
   </script>
 </html>
