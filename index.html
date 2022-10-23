@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 
       dialog{
@@ -22,10 +23,10 @@
         border-right-style: solid !important;
         border-bottom-style: solid !important;
         border-color: #085e08 !important;
-        border: 2px;
+        border: 0.4vw;
         transform: scaleY(2.5);
         transform-origin: 0 0;
-        height: 7px;
+        height: 0.5vw;
         letter-spacing: 2px;
         padding-bottom: 18px !important;
       }
@@ -50,10 +51,9 @@
       .corrige,
       .branco {
         margin-top: 20px !important;
-        margin-left: 15px !important;
         margin-right: 15px !important;
         padding-top: 7px !important;
-        padding-bottom: 22px !important;
+        padding-bottom: 2vw !important;
       }
 
       .corrige,
@@ -66,16 +66,16 @@
         display: flex;
         justify-content: center;
         background-color: #333;
-        padding: 10px;
+        padding: 1vw;
       }
 
       .flex-container > div, button {
         background-color: #222;
-        width: 100px;
+        width: 10vw;
         margin: 10px;
         padding-left: 20px;
-        line-height: 75px;
-        font-size: clamp(1.5rem, 3vw, 3vw);
+        line-height: 10vw;
+        font-size: clamp(3.5vw, 3vw, 3vw);
         font-family: sans-serif;
         color: white;
         box-shadow: 2px 2px 2px black;
@@ -262,7 +262,7 @@
       <div class="flex-container">
         <div onclick="clickButton(this)">0</div>
       </div>
-      <div style="padding-bottom: 30px" class="flex-container">
+      <div style="padding-bottom: 30px; font-size: 2vw;" class="flex-container">
         <span onclick="branco()" class="branco">BRANCO</span>
         <span onclick="limpar()" class="corrige">CORRIGE</span>
         <span onclick="confirmar()" class="confirma">CONFIRMA</span>
