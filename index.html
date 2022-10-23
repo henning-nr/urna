@@ -7,12 +7,11 @@
       dialog{
         position: fixed;
         width: 70%;
-        height: 30%;
-        margin-top: 18rem;
+        height: 40vw;
+        margin-top: -18vw;
         font-size: 10vw;
         z-index: 1000;
         text-align: center;
-        display: flex;
         flex-direction: column;
         padding-bottom: 0%;
       }
@@ -129,19 +128,104 @@
       }
 
       #voto{
-        display: flex;
+        display: none;
         justify-content: center;
         font-size: 10vw;
       }
+
+      .display-vote{
+        height: 50vw;
+        background-color: #a9a9a9;
+        border-left-style: solid;
+        border-top-style: solid;
+        border-top-color: #413c54;
+        border-top-width: 6px;
+        border-right-color: #ffffff;
+        border-right-width: 3px;
+        border-bottom: solid 3px #ffffff;
+        border-right-style: solid;
+        margin-left: 17px;
+        margin-right: 19px;
+        margin-bottom: 15px;
+        box-shadow: 2px 2px 1px black;
+        display: flex;
+      }
+
+      h3{
+        margin-left: 7px;
+        font-family: sans-serif;
+        margin-top: 5px;
+        font-size: 2vw;
+        font-weight: 800;
+      }
+
     </style>
   </head>
   <body>
-    <dialog id="dialog">Votou</dialog>
-    <div class="urna">
+    <div class="display-vote">
+      <div style="display: flex; width: 80%; flex-direction: column;">   
+      <h3>SEU VOTO PARA</h3>
+
+      <div class="candidat">
+        <h3 style="text-align: center;
+        margin-left: 18vw;
+        font-size: 2.5vw;">PRESIDETE</h3>
+      </div>
+        <div style="display: flex;
+      align-items: center;">
+        <h3>NÚMERO:</h3>
+        <div id="number1" style="    height: 9.5vw;
+    width: 5.5vw;
+    background-color: #c3c3c3;
+        border: solid 0.4vw;
+    margin-left: 9px;
+    font-size: 8vw;
+    text-align: center;
+        ">
+        </div>
+        <div id="number2" style="    height: 9.5vw;
+    width: 5.5vw;
+    background-color: #c3c3c3;
+        border: solid 0.4vw;
+    margin-left: 9px;
+    font-size: 8vw;
+    text-align: center;
+        ">
+        </div>
+      </div>
+      <div style="display: flex;
+      align-items: center;">
+        <h3>NOME:</h3>
+        <h2 id="name" style="font-family: sans-serif;
+        margin-left: 25px;
+        margin-top: 11px;"></h2>
+      </div>
+      <div style="display: flex;
+      align-items: flex-start;">
+        <h3>PARTIDO:</h3>
+        <h2 id="name" style="font-family: sans-serif;
+        margin-left: 10px;
+        margin-top: -5px;"></h2>
+      </div>
       <div id="voto">
 
       </div>
-      <div style="display: flex; justify-content: center">
+    </div>
+    <div style="       width: 17vw;
+    border: 0.5vw solid;
+    height: 24vw;
+    margin-top: 4px;
+    margin-right: 6px;
+    background-color: #c3c3c3;">
+      <img id="photo" style="    width: 17vw;" width="50" src="" alt="" srcset="">
+    </div>
+    </div>
+    <dialog id="dialog">Votou</dialog>
+    <div style="padding-top: 25px;" class="urna">
+      <div id="voto">
+
+      </div>
+      <div style="display: flex; justify-content: center; background-color: white;">
       <div>
 
         <img width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
@@ -158,12 +242,14 @@
         ">Justiça <br> <a>Eleitoral</a></pre></h1>
     </div>
       </div>
-      <div style="padding-top: 30px" class="flex-container">
-        <div onclick="clickButton(this)">1</div>
-        <div id="ideal" onclick="clickButton(this)">2</div>
-        <div onclick="clickButton(this)">3</div>
-      </div>
-      <div class="flex-container">
+      <div style="background-color: #333333;">
+
+        <div style="padding-top: 30px" class="flex-container">
+          <div onclick="clickButton(this)">1</div>
+          <div id="ideal" onclick="clickButton(this)">2</div>
+          <div onclick="clickButton(this)">3</div>
+        </div>
+        <div class="flex-container">
         <div onclick="clickButton(this)">4</div>
         <div onclick="clickButton(this)">5</div>
         <div onclick="clickButton(this)">6</div>
@@ -182,24 +268,46 @@
         <span onclick="confirmar()" class="confirma">CONFIRMA</span>
       </div>
     </div>
+    </div>
     <div style="width: 98%;">
       <button style="font-size: 20px; width: inherit;" onclick="urnaIdeal()">Ajusta urna para evitar problemas futuros</button>
     </div>
   </body>
   <script>
     document.querySelector('dialog').style.display = 'none';
-    var voto = document.getElementById('voto')
+    const voto = document.getElementById('voto')
+    const foto = document.getElementById('photo')
+    const number1 = document.getElementById('number1')
+    const number2 = document.getElementById('number2')
   function clickButton(btn){
+    if(voto.innerHTML.trim() == 'BRANCO'){
+      return
+    }
     console.log(btn.innerHTML.trim())
     var escolha = voto.innerHTML.trim()
     if(escolha.length == 2){
       return
     }
-    voto.innerHTML = voto.innerHTML + btn.innerHTML
+
+    if(number1.innerHTML.trim() == ''){
+      number1.innerHTML = btn.innerHTML
+      voto.innerHTML = voto.innerHTML + btn.innerHTML
+      return
+    }
+
+    if(number2.innerHTML.trim() == ''){
+      number2.innerHTML = btn.innerHTML
+      voto.innerHTML = voto.innerHTML + btn.innerHTML
+      foto.src = 'https://eleicoes.poder360.com.br/media/fotos/2018/BR/280000625869.jpg'
+      return
+    }
   }
 
   function limpar(){
     voto.innerHTML = ''
+    number1.innerHTML = ''
+    number2.innerHTML = ''
+    foto.src = ''
   }
 
   function branco(){
@@ -216,11 +324,16 @@
   }
 
   function confirmar(){
+    console.log('confirmar', voto.innerHTML)
+    if(voto.innerHTML.trim() == ''){
+      return
+    }
     var dialog = document.querySelector('dialog')
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     dialog.style.display = 'flex';
     setTimeout(() => {
       dialog.style.display = 'none';
+      limpar()
     }, 3000);
   }
   </script>
