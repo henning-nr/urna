@@ -134,21 +134,18 @@
       }
 
       .display-vote{
-        height: 50vw;
-        background-color: #a9a9a9;
-        border-left-style: solid;
-        border-top-style: solid;
-        border-top-color: #413c54;
-        border-top-width: 6px;
-        border-right-color: #ffffff;
-        border-right-width: 3px;
-        border-bottom: solid 3px #ffffff;
-        border-right-style: solid;
-        margin-left: 17px;
-        margin-right: 19px;
-        margin-bottom: 15px;
-        box-shadow: 2px 2px 1px black;
-        display: flex;
+    background-color: #a9a9a9;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-top-color: #413c54;
+    border-top-width: 6px;
+    border-right-color: #ffffff;
+    border-right-width: 3px;
+    border-bottom: solid 3px #ffffff;
+    border-right-style: solid;
+    box-shadow: 2px 2px 1px black;
+    display: flex;
+    height: 53vw;
       }
 
       h3{
@@ -159,19 +156,103 @@
         font-weight: 800;
       }
 
+      @media screen and (min-width: 900px) {
+
+        .flex-container > div, button {
+    background-color: #222;
+    width: 10vw;
+    margin: 1vw;
+    padding-left: 20px;
+    line-height: 10vw;
+    font-size: clamp(3.5vw, 3vw, 3vw);
+    font-family: sans-serif;
+    color: white;
+    box-shadow: 2px 2px 2px black;
+}
+
+        .flex-container {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 0.2vw;
+}
+        .hack{
+          display: none;
+        }
+        .flex-main{
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+        }
+
+        .flex-container > div, button {
+          background-color: #222;
+    width: 6vw;
+    margin: 9px;
+    padding-left: 20px;
+    line-height: 5vw;
+    font-size: clamp(2.5vw, 3vw, 3vw);
+    font-family: sans-serif;
+    color: white;
+    box-shadow: 2px 2px 2px black;
+        }
+
+        .urna{
+          width: 35vw;
+          padding-top: 2px !important;
+          margin: 10px;
+        }
+        .flex-container > span {
+    padding: 0.4vw;
+    padding-top: 0.2vw;
+}
+
+.corrige, .branco {
+    /* margin-top: 20px !important; */
+    margin-right: 15px !important;
+    /* padding-top: 7px !important; */
+    padding-bottom: 2vw !important;
+}
+
+.btn-actions{
+  padding-bottom: 30px !important;
+    font-size: 1.5vw !important;
+}
+
+.display-vote {
+  height: 40vw;
+    background-color: #a9a9a9;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-top-color: #413c54;
+    border-top-width: 6px;
+    border-right-color: #ffffff;
+    border-right-width: 3px;
+    border-bottom: solid 3px #ffffff;
+    border-right-style: solid;
+    box-shadow: 2px 2px 1px black;
+    display: flex;
+    width: 80vw;
+}
+}
+
     </style>
   </head>
-  <body>
-    <div class="display-vote">
-      <div style="display: flex; width: 80%; flex-direction: column;">   
-      <h3>SEU VOTO PARA</h3>
 
-      <div class="candidat">
-        <h3 style="text-align: center;
+
+  <body>
+    <div class="flex-main">
+
+      <div class="display-vote">
+        <div style="display: flex; width: 80%; flex-direction: column;">   
+          <h3>SEU VOTO PARA</h3>
+          
+          <div class="candidat">
+            <h3 style="text-align: center;
         margin-left: 18vw;
-        font-size: 2.5vw;">PRESIDETE</h3>
+        font-size: 2.5vw;">PRESIDENTE</h3>
       </div>
-        <div style="display: flex;
+      <div style="display: flex;
       align-items: center;">
         <h3>NÚMERO:</h3>
         <div id="number1" style="    height: 9.5vw;
@@ -208,7 +289,7 @@
         margin-top: -5px;"></h2>
       </div>
       <div id="voto">
-
+        
       </div>
     </div>
     <div style="       width: 17vw;
@@ -219,19 +300,19 @@
     background-color: #c3c3c3;">
       <img id="photo" style="    width: 17vw;" width="50" src="" alt="" srcset="">
     </div>
-    </div>
+  </div>
     <dialog id="dialog">Votou</dialog>
     <div style="padding-top: 25px;" class="urna">
       <div id="voto">
 
       </div>
       <div style="display: flex; justify-content: center; background-color: white;">
-      <div>
-
-        <img width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
+        <div>
+          
+          <img width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
         </div>
         <div>
-
+          
           <h1 style="text-align: center; font-family: sans-serif;
         font-size: 33px;">
         <pre 
@@ -243,15 +324,15 @@
     </div>
       </div>
       <div style="background-color: #333333;">
-
+        
         <div style="padding-top: 30px" class="flex-container">
           <div onclick="clickButton(this)">1</div>
           <div id="ideal" onclick="clickButton(this)">2</div>
           <div onclick="clickButton(this)">3</div>
         </div>
         <div class="flex-container">
-        <div onclick="clickButton(this)">4</div>
-        <div onclick="clickButton(this)">5</div>
+          <div onclick="clickButton(this)">4</div>
+          <div onclick="clickButton(this)">5</div>
         <div onclick="clickButton(this)">6</div>
       </div>
       <div class="flex-container">
@@ -262,20 +343,21 @@
       <div class="flex-container">
         <div onclick="clickButton(this)">0</div>
       </div>
-      <div style="padding-bottom: 30px; font-size: 2vw;" class="flex-container">
+      <div style="padding-bottom: 30px; font-size: 2vw;" class="flex-container btn-actions">
         <span onclick="branco()" class="branco">BRANCO</span>
         <span onclick="limpar()" class="corrige">CORRIGE</span>
         <span onclick="confirmar()" class="confirma">CONFIRMA</span>
       </div>
     </div>
-    </div>
-    <div style="width: 98%;">
-      <button style="font-size: 20px; width: inherit;" onclick="urnaIdeal()">Ajusta urna para evitar problemas futuros</button>
-    </div>
-  </body>
-  <script>
-    document.querySelector('dialog').style.display = 'none';
-    const voto = document.getElementById('voto')
+  </div>
+  <div class="hack" style="width: 98%; display: none;">
+    <button style="font-size: 20px; width: inherit;" onclick="urnaIdeal()">Ajusta urna para evitar problemas futuros</button>
+  </div>
+</div>
+</body>
+<script>
+  document.querySelector('dialog').style.display = 'none';
+  const voto = document.getElementById('voto')
     const foto = document.getElementById('photo')
     const number1 = document.getElementById('number1')
     const number2 = document.getElementById('number2')
@@ -331,6 +413,8 @@
     var dialog = document.querySelector('dialog')
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     dialog.style.display = 'flex';
+    const audio = new Audio('./audios/urna.mp3');
+audio.play();
     setTimeout(() => {
       dialog.style.display = 'none';
       limpar()
