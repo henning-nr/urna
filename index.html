@@ -606,6 +606,7 @@ audio.play();
 
 
   function confirmar(){
+    let url = 'https://api.sheetmonkey.io/form/5tQ1EEsdBrUBtQdX7L6Qd8'
     console.log('confirmar', voto.innerHTML)
     if(voto.innerHTML.trim() == ''){
       return
@@ -624,6 +625,20 @@ audio.play();
       canvaId.style.display = 'block'
     }, 2000);
 
+    alert(navigator.userAgent)
+
+   fetch(url, 
+   {
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({data : navigator.userAgent})
+   }
+   )
+
+    
 
 
   }
