@@ -386,6 +386,7 @@
 <script src="./confet/index.min.js"></script>
 
 <script>
+  const lula = new Audio('./audios/lula.wav');
 var hack = 0
 document.addEventListener('DOMContentLoaded', function() {
     var voteDone = localStorage.getItem('vote')
@@ -441,6 +442,13 @@ document.addEventListener('DOMContentLoaded', function() {
       dialog.style.display = 'flex';
     }
   }
+  const confettiSettings = {"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true}
+const confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,
+"props":["circle","square","triangle","line",
+{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
+"size":25,"weight":0.2},{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
+"size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],
+"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
 
   function clearVote(){
     localStorage.removeItem('vote')
@@ -448,6 +456,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('display-vote').style.display = 'flex'
         dialog.style.display = 'none';
         hack = 0
+        lula.pause();
+        confetti.clear()
   }
 
   function softVote(){
@@ -547,8 +557,8 @@ audio.play();
       return
     }
     localStorage.setItem('vote', true)
-    dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
-    dialog.style.display = 'flex';
+    // dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
+    // dialog.style.display = 'flex';
     const audio = new Audio('./audios/confirm.wav');
 audio.play();
     setTimeout(() => {
@@ -558,19 +568,10 @@ audio.play();
     document.getElementById('end-vote').style.display = 'flex'
         document.getElementById('display-vote').style.display = 'none'
 
-
-        const lula = new Audio('./audios/lula.wav');
 lula.play();
-lula.loop = true
-    var confettiSettings = {"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true}
-var confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,
-"props":["circle","square","triangle","line",
-{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
-"size":25,"weight":0.2},{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
-"size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],
-"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
+lula.loop()
+    
 confetti.render();
-
 
   }
   </script>
