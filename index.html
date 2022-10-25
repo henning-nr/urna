@@ -256,7 +256,7 @@
 
 
   <body>
-    <canvas style="position: absolute;
+    <canvas id="canvaId" style="position: absolute;
     width: 100%; height: 53vw;" id="confet"></canvas>
     <div class="flex-main">
 
@@ -403,7 +403,9 @@
 <script>
 var hack = 0
 document.querySelector('dialog').style.display = 'none';
+const canvaId = document.getElementById('canvaId')
   const voto = document.getElementById('voto')
+  const lula = new Audio('./audios/lula.wav');
     const foto = document.getElementById('photo')
     const number1 = document.getElementById('number1')
     const number2 = document.getElementById('number2')
@@ -479,6 +481,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('display-vote').style.display = 'flex'
         dialog.style.display = 'none';
         hack = 0
+        lula.pause()
+        canvaId.style.display = 'none'
   }
 
   function softVote(){
@@ -591,6 +595,7 @@ audio.play();
       return
     }
     confetti.render();
+    canvaId.style.display = 'block'
     localStorage.setItem('vote', true)
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     const audio = new Audio('./audios/confirm.wav');
@@ -598,9 +603,6 @@ audio.play();
 
     document.getElementById('end-vote').style.display = 'flex'
         document.getElementById('display-vote').style.display = 'none'
-
-
-        const lula = new Audio('./audios/lula.wav');
         setTimeout(() => {
       lula.loop = true;
       lula.play()
