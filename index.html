@@ -243,7 +243,8 @@
 
 
   <body>
-    <canvas id="confet"></canvas>
+    <canvas styele="position: absolute;
+    width: 100%;" id="confet"></canvas>
     <div class="flex-main">
 
       <div class="display-vote">
@@ -426,9 +427,8 @@ audio.play();
     }, 3000);
 
 
-    var confettiElement = document.getElementById('confet');
-var confettiSettings = { target: confettiElement };
-var confetti = new ConfettiGenerator(confettiSettings);
+    var confettiSettings = {"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true}
+var confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":".site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
 confetti.render();
 
   }
