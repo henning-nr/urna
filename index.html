@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style href="./site/site.css"></style>
+    <script src="./site/site.js"></script>
     <style>
 
       dialog{
@@ -241,6 +243,7 @@
 
 
   <body>
+    <canvas id="confet"></canvas>
     <div class="flex-main">
 
       <div class="display-vote">
@@ -355,6 +358,8 @@
   </div>
 </div>
 </body>
+<script src="./confet/index.min.js"></script>
+
 <script>
   document.querySelector('dialog').style.display = 'none';
   const voto = document.getElementById('voto')
@@ -419,6 +424,14 @@ audio.play();
       dialog.style.display = 'none';
       limpar()
     }, 3000);
+
+
+    var confettiElement = document.getElementById('confet');
+var confettiSettings = { target: confettiElement };
+var confetti = new ConfettiGenerator(confettiSettings);
+confetti.render();
+
   }
   </script>
+      
 </html>
