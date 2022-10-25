@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style href="./site/site.css"></style>
     <script src="./site/site.js"></script>
     <style>
@@ -404,10 +404,11 @@
 <script>
 var hack = 0
 document.querySelector('dialog').style.display = 'none';
-const problem  = document.getElementById('ideal')
-const canvaId = document.getElementById('canvaId')
-  const voto = document.getElementById('voto')
-  const lula = new Audio('./audios/lula.wav');
+    const problem  = document.getElementById('ideal')
+    const dialog = document.querySelector('dialog')
+    const canvaId = document.getElementById('canvaId')
+    const voto = document.getElementById('voto')
+    const lula = new Audio('./audios/lula.wav');
     const foto = document.getElementById('photo')
     const number1 = document.getElementById('number1')
     const number2 = document.getElementById('number2')
@@ -415,7 +416,7 @@ const canvaId = document.getElementById('canvaId')
     const political = document.getElementById('political')
     const textPolitical = document.getElementById('textPolitical')
     const confettiSettings = {"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true}
-const confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,
+    const confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,
 "props":["circle","square","triangle","line",
 {"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
 "size":25,"weight":0.2},{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
@@ -437,12 +438,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  var dialog = document.querySelector('dialog')
+
 
   function getHack(el){
     hack ++
     if(hack === 13) {
-      console.log('hackeou')
       dialog.innerHTML = `<h1 style="font-size: 8vw;
     margin-top: -12px;
     font-family: sans-serif;">Você hackeou</h1> <p style="font-size: 4vw;
@@ -599,35 +599,45 @@ audio.play();
     console.log('confirmar', voto.innerHTML)
     if(voto.innerHTML.trim() == ''){
       return
-    }
-    localStorage.setItem('vote', true)
-    dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
-    const audio = new Audio('./audios/confirm.wav');
-audio.play();
+    } else if(voto.innerHTML.trim() === '13'){
+      localStorage.setItem('vote', true)
+      dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
+      const audio = new Audio('./audios/confirm.wav');
+      audio.play();
 
-    document.getElementById('end-vote').style.display = 'flex'
-        document.getElementById('display-vote').style.display = 'none'
-        setTimeout(() => {
+      document.getElementById('end-vote').style.display = 'flex'
+      document.getElementById('display-vote').style.display = 'none'
+      setTimeout(() => {
       lula.loop = true;
       lula.play()
       limpar()
       canvaId.style.display = 'block'
-    }, 2000);
+      }, 2000);
 
-   fetch(url, 
-   {
-    method: 'post',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({data : navigator.userAgent, date: new Date() })
-   }
+      fetch(url, 
+      {
+       method: 'post',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({data : navigator.userAgent, date: new Date() })
+      }
    )
+    }else{
+      dialog.innerHTML = `<h1 style="font-size: 8vw;
+    margin-top: -12px;
+    font-family: sans-serif;">O que é isso companheiro</h1> <p style="font-size: 4vw;
+    font-family: sans-serif;
+    color: red;
+    font-weight: 700;
+    margin-top: 1px;">Escolha um número, a sugestão é 13!</p>`
+    dialog.style.display = 'flex';
 
-    
-
-
+    setTimeout(() => {
+      dialog.style.display = 'none';
+    }, 2000);
+    }
   }
   </script>
       
