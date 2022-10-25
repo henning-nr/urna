@@ -486,6 +486,14 @@ document.addEventListener('DOMContentLoaded', function() {
         hack = 0
         lula.pause()
         canvaId.style.display = 'none'
+        hardElems = document.querySelectorAll('[class="flex-container hard"]')
+    console.log('ele', hardElems)
+    for (const elem of hardElems) {
+      elem.style.display = 'flex'
+    }
+    hardBtn = document.querySelectorAll('span')
+    hardBtn[0].style.display = 'block'
+    hardBtn[1].style.display = 'block'
   }
 
   function softVote(){
@@ -507,6 +515,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('display-vote').style.display = 'flex'
     dialog.style.display = 'none';
     hack = 0
+    lula.pause()
+        canvaId.style.display = 'none'
   }
 
   function expeVote(){
@@ -525,6 +535,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('display-vote').style.display = 'flex'
     dialog.style.display = 'none';
     hack = 0
+    lula.pause()
+        canvaId.style.display = 'none'
   }
     
   function clickButton(btn){
