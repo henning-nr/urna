@@ -556,22 +556,21 @@ audio.play();
     if(voto.innerHTML.trim() == ''){
       return
     }
+    confetti.render();
     localStorage.setItem('vote', true)
     // dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     // dialog.style.display = 'flex';
     const audio = new Audio('./audios/confirm.wav');
-audio.play();
-    setTimeout(() => {
-      dialog.style.display = 'none';
+    audio.play();
       limpar()
-    }, 3000);
+
     document.getElementById('end-vote').style.display = 'flex'
         document.getElementById('display-vote').style.display = 'none'
 
-lula.play();
-lula.loop()
+    lula.loop = true
+    lula.play();
     
-confetti.render();
+
 
   }
   </script>
