@@ -451,13 +451,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function clearVote(){
+    confetti.clear()
     localStorage.removeItem('vote')
     document.getElementById('end-vote').style.display = 'none'
         document.getElementById('display-vote').style.display = 'flex'
         dialog.style.display = 'none';
         hack = 0
         lula.pause();
-        confetti.clear()
   }
 
   function softVote(){
@@ -561,14 +561,19 @@ audio.play();
     // dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     // dialog.style.display = 'flex';
     const audio = new Audio('./audios/confirm.wav');
+ 
     audio.play();
       limpar()
 
     document.getElementById('end-vote').style.display = 'flex'
         document.getElementById('display-vote').style.display = 'none'
 
-    lula.loop = true
+        setTimeout(() => {
+          lula.loop = true
     lula.play();
+    }, 1000);
+
+    
     
 
 
