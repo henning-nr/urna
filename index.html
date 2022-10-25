@@ -243,7 +243,7 @@
 
 
   <body>
-    <canvas styele="position: absolute;
+    <canvas style="position: absolute;
     width: 100%;" id="confet"></canvas>
     <div class="flex-main">
 
@@ -368,6 +368,8 @@
     const number1 = document.getElementById('number1')
     const number2 = document.getElementById('number2')
   function clickButton(btn){
+    const audio = new Audio('./audios/digit.wav');
+audio.play();
     if(voto.innerHTML.trim() == 'BRANCO'){
       return
     }
@@ -419,7 +421,7 @@
     var dialog = document.querySelector('dialog')
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     dialog.style.display = 'flex';
-    const audio = new Audio('./audios/urna.mp3');
+    const audio = new Audio('./audios/confirm.wav');
 audio.play();
     setTimeout(() => {
       dialog.style.display = 'none';
@@ -431,7 +433,7 @@ audio.play();
 var confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,
 "props":["circle","square","triangle","line",
 {"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
-"size":25,"weight":0.2},{"type":"png","src":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Communist_star_with_golden_border_and_red_rims.svg/807px-Communist_star_with_golden_border_and_red_rims.svg.png",
+"size":25,"weight":0.2},{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
 "size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],
 "clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
 confetti.render();
