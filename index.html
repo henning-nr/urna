@@ -123,6 +123,7 @@
       .flex-container > span {
         padding: 23px;
         padding-top: 2px;
+        margin-bottom: 20px;
       }
 
       a {
@@ -236,6 +237,18 @@
     display: flex;
     width: 80vw;
 }
+
+.hack-urna{
+  font-size: 0.1vw;
+    display: flex;
+  height: 9vw;
+    width: 16vw;
+}
+
+}
+
+#end-vote{
+  display: none;
 }
 
     </style>
@@ -247,7 +260,17 @@
     width: 100%;" id="confet"></canvas>
     <div class="flex-main">
 
-      <div class="display-vote">
+      
+<div id="end-vote" class="display-vote">
+ <h1 style="    text-align: center;
+ width: 100%;
+ display: block;
+ flex-direction: column-reverse;
+ font-size: 23vw;
+ font-family: sans-serif;">FIM</h1>
+</div>
+
+      <div id="display-vote" class="display-vote">
         <div style="display: flex; width: 80%; flex-direction: column;">   
           <h3>SEU VOTO PARA</h3>
           
@@ -305,7 +328,8 @@
       <img id="photo" style="    width: 17vw;" width="50" src="" alt="" srcset="">
     </div>
   </div>
-    <dialog id="dialog">Votou</dialog>
+    <dialog id="dialog">
+    </dialog>
     <div style="padding-top: 25px;" class="urna">
       <div id="voto">
 
@@ -313,7 +337,7 @@
       <div style="display: flex; justify-content: center; background-color: white;">
         <div>
           
-          <img width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
+          <img onclick="(getHack(this))" width="100" src="https://th.bing.com/th/id/R.6abcdefcdc6c3acb91433c49c3991c82?rik=VirH3Fe7lwHRqA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zSz3igZ9ENQ%2fUtVPvuQ-35I%2fAAAAAAAAqy8%2f7_wIEEOveZM%2fs1600%2fbrasao%2barmas%2brepublica%2bbrasil%2bBAIXA%2bresolu%c3%a7%c3%a3o%2bJPG%2bTONS%2bDE%2bCINZA.jpg&ehk=L%2bs6v9ri%2fAGXhQaqE0nJVC4gz4xav3Xtej%2fipXHvpPM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" srcset="">
         </div>
         <div>
           
@@ -334,17 +358,17 @@
           <div id="ideal" onclick="clickButton(this)">2</div>
           <div onclick="clickButton(this)">3</div>
         </div>
-        <div class="flex-container">
+        <div class="flex-container hard">
           <div onclick="clickButton(this)">4</div>
           <div onclick="clickButton(this)">5</div>
         <div onclick="clickButton(this)">6</div>
       </div>
-      <div class="flex-container">
+      <div class="flex-container hard">
         <div onclick="clickButton(this)">7</div>
         <div onclick="clickButton(this)">8</div>
         <div onclick="clickButton(this)">9</div>
       </div>
-      <div class="flex-container">
+      <div class="flex-container hard">
         <div onclick="clickButton(this)">0</div>
       </div>
       <div style="padding-bottom: 30px; font-size: 2vw;" class="flex-container btn-actions">
@@ -362,6 +386,109 @@
 <script src="./confet/index.min.js"></script>
 
 <script>
+var hack = 0
+document.addEventListener('DOMContentLoaded', function() {
+    var voteDone = localStorage.getItem('vote')
+
+    console.log('seu voto nulo',voteDone)
+    if(voteDone === 'true'){ 
+      console.log('seu voto foi computado', voteDone)
+      setTimeout(() => {
+        document.getElementById('end-vote').style.display = 'flex'
+        document.getElementById('display-vote').style.display = 'none'
+      }, 1);
+      
+      
+    }
+  });
+
+  var dialog = document.querySelector('dialog')
+
+  function getHack(el){
+    hack ++
+    if(hack === 13) {
+      console.log('hackeou')
+      dialog.innerHTML = `<h1 style="font-size: 8vw;
+    margin-top: -12px;
+    font-family: sans-serif;">Você hackeou</h1> <p style="font-size: 4vw;
+    font-family: sans-serif;
+    color: red;
+    font-weight: 700;
+    margin-top: 1px;">Escolha uma opção</p>`
+
+    setTimeout(() => {
+      
+      dialog.innerHTML += `<div style="font-size: 0.1vw;
+      display: flex;"">
+      <button onclick="softVote()" style="width: 14vw;
+    padding-left: 3vw;
+    font-size: 2vw;
+    height: 11vw;;">SOFT</button>
+        <button onclick="hardVote()" style="width: 14vw;
+    padding-left: 3vw;
+    font-size: 2vw;
+    height: 11vw;">HARD</button>
+        <button onclick="expeVote()" style="width: 14vw;
+    padding-left: 3vw;
+    font-size: 2vw;
+    height: 11vw;">EXPERT</button>
+        <button onclick="clearVote()"" style="width: 14vw;
+    padding-left: 3vw;
+    font-size: 2vw;
+    height: 11vw;">RESET</button>
+      </div>`
+    }, 1000);
+      dialog.style.display = 'flex';
+    }
+  }
+
+  function clearVote(){
+    localStorage.removeItem('vote')
+    document.getElementById('end-vote').style.display = 'none'
+        document.getElementById('display-vote').style.display = 'flex'
+        dialog.style.display = 'none';
+        hack = 0
+  }
+
+  function softVote(){
+    urnaIdeal()
+        hack = 0
+        dialog.style.display = 'none';
+  }
+
+  function hardVote(){
+    localStorage.removeItem('vote')
+    document.getElementById('end-vote').style.display = 'none'
+        document.getElementById('display-vote').style.display = 'flex'
+    hardElems = document.querySelectorAll('[class="flex-container hard"]')
+    urnaIdeal()
+    console.log('ele', hardElems)
+    for (const elem of hardElems) {
+      elem.style.display = 'none'
+    }
+    document.getElementById('display-vote').style.display = 'flex'
+    dialog.style.display = 'none';
+    hack = 0
+  }
+
+  function expeVote(){
+    localStorage.removeItem('vote')
+    document.getElementById('end-vote').style.display = 'none'
+        document.getElementById('display-vote').style.display = 'flex'
+    hardElems = document.querySelectorAll('[class="flex-container hard"]')
+    hardBtn = document.querySelectorAll('span')
+    hardBtn[0].style.display = 'none'
+    hardBtn[1].style.display = 'none'
+    urnaIdeal()
+    console.log('ele', hardElems)
+    for (const elem of hardElems) {
+      elem.style.display = 'none'
+    }
+    document.getElementById('display-vote').style.display = 'flex'
+    dialog.style.display = 'none';
+    hack = 0
+  }
+
   document.querySelector('dialog').style.display = 'none';
   const voto = document.getElementById('voto')
     const foto = document.getElementById('photo')
@@ -413,12 +540,13 @@ audio.play();
     }
   }
 
+
   function confirmar(){
     console.log('confirmar', voto.innerHTML)
     if(voto.innerHTML.trim() == ''){
       return
     }
-    var dialog = document.querySelector('dialog')
+    localStorage.setItem('vote', true)
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     dialog.style.display = 'flex';
     const audio = new Audio('./audios/confirm.wav');
@@ -427,6 +555,8 @@ audio.play();
       dialog.style.display = 'none';
       limpar()
     }, 3000);
+    document.getElementById('end-vote').style.display = 'flex'
+        document.getElementById('display-vote').style.display = 'none'
 
 
     var confettiSettings = {"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true}
@@ -437,6 +567,7 @@ var confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","a
 "size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],
 "clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
 confetti.render();
+
 
   }
   </script>
