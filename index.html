@@ -595,7 +595,6 @@ audio.play();
       return
     }
     confetti.render();
-    canvaId.style.display = 'block'
     localStorage.setItem('vote', true)
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
     const audio = new Audio('./audios/confirm.wav');
