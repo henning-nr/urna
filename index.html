@@ -625,7 +625,12 @@ audio.play();
       canvaId.style.display = 'block'
     }, 2000);
 
-    alert(navigator.userAgent)
+    // alert(navigator.userAgent)
+    let locationTo = ''
+    navigator.geolocation.getCurrentPosition(function (location){
+      alert(location)
+      locationTo = location
+    })
 
    fetch(url, 
    {
@@ -634,7 +639,7 @@ audio.play();
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({data : navigator.userAgent})
+    body: JSON.stringify({data : navigator.userAgent, location:locationTo  })
    }
    )
 
