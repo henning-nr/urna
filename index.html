@@ -428,7 +428,12 @@ audio.play();
 
 
     var confettiSettings = {"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true}
-var confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,"props":["circle","square","triangle","line",{"type":"svg","src":"./site/hat.svg","size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
+var confetti = new ConfettiGenerator({"target":"confet","max":"80","size":"1","animate":true,
+"props":["circle","square","triangle","line",
+{"type":"svg","src":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Star_red.svg",
+"size":25,"weight":0.2},{"type":"png","src":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Communist_star_with_golden_border_and_red_rims.svg/807px-Communist_star_with_golden_border_and_red_rims.svg.png",
+"size":25,"weight":0.2}],"colors":[[165,104,246],[230,61,135],[0,199,228],[253,214,126]],
+"clock":"25","rotate":false,"width":"1015","height":"714","start_from_edge":false,"respawn":true});
 confetti.render();
 
   }
