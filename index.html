@@ -396,9 +396,6 @@
       </div>
     </div>
   </div>
-  <div class="hack" style="width: 98%; display: none;">
-    <button style="font-size: 20px; width: inherit;" onclick="urnaIdeal()">Ajusta urna para evitar problemas futuros</button>
-  </div>
 </div>
 </body>
 <script src="./confet/index.min.js"></script>
@@ -406,6 +403,7 @@
 <script>
 var hack = 0
 document.querySelector('dialog').style.display = 'none';
+const problem  = document.getElementById('ideal')
 const canvaId = document.getElementById('canvaId')
   const voto = document.getElementById('voto')
   const lula = new Audio('./audios/lula.wav');
@@ -494,11 +492,11 @@ document.addEventListener('DOMContentLoaded', function() {
     hardBtn = document.querySelectorAll('span')
     hardBtn[0].style.display = 'block'
     hardBtn[1].style.display = 'block'
-    urnaIdeal()
+    problem.style.display = 'flex'
   }
 
   function softVote(){
-    urnaIdeal()
+    problem.style.display = 'none'
         hack = 0
         dialog.style.display = 'none';
   }
@@ -508,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('end-vote').style.display = 'none'
         document.getElementById('display-vote').style.display = 'flex'
     hardElems = document.querySelectorAll('[class="flex-container hard"]')
-    urnaIdeal()
+    problem.style.display = 'none'
     console.log('ele', hardElems)
     for (const elem of hardElems) {
       elem.style.display = 'none'
@@ -528,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
     hardBtn = document.querySelectorAll('span')
     hardBtn[0].style.display = 'none'
     hardBtn[1].style.display = 'none'
-    urnaIdeal()
+    problem.style.display = 'none'
     console.log('ele', hardElems)
     for (const elem of hardElems) {
       elem.style.display = 'none'
@@ -595,16 +593,6 @@ audio.play();
     voto.innerHTML = 'BRANCO'
   }
 
-  function urnaIdeal(){
-    var problema  = document.getElementById('ideal')
-    if(problema.style.display === '' || problema.style.display === 'block'){
-      problema.style.display = 'none'
-    }else{
-      problema.style.display = 'block'
-    }
-  }
-
-
   function confirmar(){
     let url = 'https://api.sheetmonkey.io/form/5tQ1EEsdBrUBtQdX7L6Qd8'
     console.log('confirmar', voto.innerHTML)
@@ -625,13 +613,6 @@ audio.play();
       canvaId.style.display = 'block'
     }, 2000);
 
-    // alert(navigator.userAgent)
-    let locationTo = ''
-    navigator.geolocation.getCurrentPosition(function (location){
-      alert(location)
-      locationTo = location
-    })
-
    fetch(url, 
    {
     method: 'post',
@@ -639,7 +620,7 @@ audio.play();
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({data : navigator.userAgent, location:locationTo  })
+    body: JSON.stringify({data : navigator.userAgent, date: new Date() })
    }
    )
 
