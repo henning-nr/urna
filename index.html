@@ -73,14 +73,14 @@
 
       .flex-container > div, button {
         background-color: #222;
-        width: 10vw;
-        margin: 10px;
-        padding-left: 20px;
-        line-height: 10vw;
-        font-size: clamp(3.5vw, 3vw, 3vw);
-        font-family: sans-serif;
-        color: white;
-        box-shadow: 2px 2px 2px black;
+    width: 12vw;
+    margin: 10px;
+    padding-left: 20px;
+    line-height: 9vw;
+    font-size: clamp(3.5vw, 3vw, 3vw);
+    font-family: sans-serif;
+    color: white;
+    box-shadow: 2px 2px 2px black;
       }
 
       .flex-container > div:active {
@@ -593,7 +593,6 @@ audio.play();
     confetti.render();
     localStorage.setItem('vote', true)
     dialog.innerHTML = 'Você votou <br>' + '<strong>'+voto.innerHTML+'</strong>'
-    dialog.style.display = 'flex';
     const audio = new Audio('./audios/confirm.wav');
 audio.play();
 
